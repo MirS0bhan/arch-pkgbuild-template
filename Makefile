@@ -1,5 +1,14 @@
-# General AUR package Makefile
-.PHONY: all clean package srcinfo
+PKGNAME := $(shell grep -m1 'pkgname = ' .SRCINFO | cut -d' ' -f3)
+PKGVER := $(shell grep -m1 'pkgver = ' .SRCINFO | cut -d' ' -f3)
+PKGREL := $(shell grep -m1 'pkgrel = ' .SRCINFO | cut -d' ' -f3)
+PKGDESC := $(shell grep -m1 'pkgdesc = ' .SRCINFO | cut -d' ' -f3-)
+
+.PHONY: all clean package srcinfo publish check install info
+
+info:
+	@echo "Package: $(PKGNAME)"
+	@echo "Version: $(PKGVER)-$(PKGREL)"
+	@echo "Description: $(PKGDESC)"
 
 all: package
 
@@ -25,7 +34,7 @@ aur: srcinfo
 	git checkout -B aur
 	git rm -rf --cached .
 	git add PKGBUILD .SRCINFO Makefile *.install *.patch *.service
-	git commit -m "Update AUR package files"
+	git commit -m "Update $(PKGNAME) $(PKGVER)-$(PKGREL)"
 	git push aur aur:master
 	git checkout main
 
