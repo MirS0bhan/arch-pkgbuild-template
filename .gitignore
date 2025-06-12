@@ -1,0 +1,12 @@
+# Package builds
+pkg/
+src/
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.tar.gz
+*.tar.xz
+*.zip
+
+# Backup files
+*~
+*.bak

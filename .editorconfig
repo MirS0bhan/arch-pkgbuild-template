@@ -1,0 +1,27 @@
+# Top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf                 # Use Linux line endings (LF)
+insert_final_newline = true      # Add empty line at end of files
+charset = utf-8                  # Use UTF-8 encoding
+trim_trailing_whitespace = true  # Remove spaces at end of lines
+
+# PKGBUILD specific settings
+[PKGBUILD]
+indent_style = space            # Use spaces for indentation
+indent_size = 2                 # Use 2 spaces per indentation level
+
+# Makefile specific settings
+[Makefile]
+indent_style = tab             # Use tabs for indentation (required for Makefiles)
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false  # Don't trim spaces in Markdown as they can be meaningful
+
+# Shell scripts
+[*.sh]
+indent_style = space
+indent_size = 2

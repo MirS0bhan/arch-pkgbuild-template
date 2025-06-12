@@ -1,0 +1,13 @@
+[branch "main"]
+    remote = origin
+    merge = refs/heads/main
+
+[branch "aur"]
+    remote = aur
+    merge = refs/heads/master
+
+[pull]
+    rebase = true
+
+[format]
+    signoff = true
